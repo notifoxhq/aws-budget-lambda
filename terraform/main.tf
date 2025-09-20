@@ -13,6 +13,7 @@ resource "aws_lambda_function" "budget_lambda" {
   filename      = data.archive_file.example.output_path
   layers        = ["arn:aws:lambda:us-east-1:770693421928:layer:Klayers-p310-requests:23"]
 
+  timeout = 30
 
   environment {
     variables = {
