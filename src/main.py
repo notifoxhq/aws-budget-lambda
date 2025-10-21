@@ -72,7 +72,7 @@ def send_alert(message):
     })
 
     headers = {
-        'x-api-key': notifox_api_key,
+        'Authorization': f'Bearer {notifox_api_key}',
         'Content-Type': 'application/json'
     }
 
