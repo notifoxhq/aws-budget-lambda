@@ -211,3 +211,5 @@ function.zip
 *.zip
 
 *.tfvars
+
+.DS_Store
