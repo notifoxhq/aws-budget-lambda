@@ -24,10 +24,10 @@ This file will be used by terraform to set environment variables inside the Lamb
 Get your Notifox API key and audience from the console at https://console.notifox.com.
 
 #### Audience
-![Screenshot of audience in Notifox](https://raw.githubusercontent.com/notifoxhq/aws-budget-lambda/refs/heads/main/img/audience.png)
+![Screenshot of audience in Notifox](https://github.com/notifoxhq/aws-budget-lambda/blob/main/img/audience.png?raw=true)
 
 #### Token
-![Screenshot of token in Notifox](https://raw.githubusercontent.com/notifoxhq/aws-budget-lambda/refs/heads/main/img/token.png)
+![Screenshot of token in Notifox](https://github.com/notifoxhq/aws-budget-lambda/blob/main/img/token.png?raw=true)
 
 ```bash
 # terraform.tfvars
