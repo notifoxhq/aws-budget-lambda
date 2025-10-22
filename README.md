@@ -1,7 +1,6 @@
 # AWS Budget Lambda
 
-A serverless Lambda function that automatically monitors and reports your monthly AWS spending via Notifox alerts. The function runs daily (or a schedule of your choosing) and sends cost information to your configured Notifox audience.
-
+A serverless Lambda function that notifies you of your month-to-date AWS spend using Notifox.
 
 ## Prerequisites
 
