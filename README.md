@@ -2,6 +2,8 @@
 
 A serverless Lambda function that notifies you of your month-to-date AWS spend using Notifox.
 
+![Screenshot of text received via Notifox](https://github.com/notifoxhq/aws-budget-lambda/blob/main/img/text.jpg?raw=true)
+
 ## Prerequisites
 
 - AWS CLI configured with appropriate permissions
