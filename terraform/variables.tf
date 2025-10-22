@@ -8,3 +8,8 @@ variable "NOTIFOX_API_KEY" {
   description = "Your notifox API token"
   sensitive   = true
 }
+
+variable "SCHEDULE_EXPRESSION" {
+  type        = string
+  description = "The schedule expression for the Lambda function"
+}

@@ -6,7 +6,7 @@ resource "aws_scheduler_schedule" "budget_lambda_schedule" {
     mode = "OFF"
   }
 
-  schedule_expression          = "cron(0 20 * * ? *)"
+  schedule_expression          = "cron(${var.SCHEDULE_EXPRESSION})"
   schedule_expression_timezone = "UTC"
 
   target {

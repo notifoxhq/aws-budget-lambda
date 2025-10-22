@@ -13,19 +13,15 @@ notifox_audience = os.environ.get('NOTIFOX_AUDIENCE')
 notifox_api_key = os.environ.get('NOTIFOX_API_KEY')
 
 def get_monthly_cost():
-    logger.info("Starting to fetch monthly AWS cost data")
     
     # Set up AWS Cost Explorer client
     client = boto3.client('ce')
-    logger.info("Initialized Cost Explorer client")
 
     # Get first day of this month
     today = datetime.now(timezone.utc)
     start = today.replace(day=1).strftime('%Y-%m-%d')
     end = today.strftime('%Y-%m-%d')
     
-    logger.info(f"Fetching cost data for period: {start} to {end}")
-
     try:
         response = client.get_cost_and_usage(
             TimePeriod={
@@ -89,39 +85,13 @@ def send_alert(message):
 def lambda_handler(event, context):
     logger.info("Lambda function started")
     logger.info(f"Event received: {json.dumps(event) if event else 'None'}")
-    logger.info(f"Context: {context}")
-    
-    # Parse EventBridge Scheduler event
-    event_source = event.get('source', 'unknown') if event else 'unknown'
-    event_detail_type = event.get('detail-type', 'unknown') if event else 'unknown'
-    event_detail = event.get('detail', {}) if event else {}
-    
-    logger.info(f"Event source: {event_source}")
-    logger.info(f"Event detail-type: {event_detail_type}")
-    logger.info(f"Event detail: {event_detail}")
-    
-    # Validate this is a scheduled event from EventBridge Scheduler
-    if event_source != 'aws.scheduler' or event_detail_type != 'Scheduled Event':
-        logger.warning(f"Unexpected event type: {event_source}/{event_detail_type}")
-    
-    # Log schedule information
-    schedule_name = event_detail.get('schedule', 'unknown')
-    timezone = event_detail.get('timezone', 'unknown')
-    description = event_detail.get('description', 'No description')
-    
-    logger.info(f"Schedule: {schedule_name}")
-    logger.info(f"Timezone: {timezone}")
-    logger.info(f"Description: {description}")
     
     try:
         # Check environment variables
         logger.info(f"Environment variables - NOTIFOX_AUDIENCE: {'Set' if notifox_audience else 'Not set'}")
         logger.info(f"Environment variables - NOTIFOX_API_KEY: {'Set' if notifox_api_key else 'Not set'}")
         
-        logger.info("Starting cost retrieval process")
         monthly_cost = get_monthly_cost()
-
-        logger.info("Starting account ID retrieval")
         account_id = get_account_id()
 
         message = f"Account {account_id}: monthly AWS cost so far: ${monthly_cost:.2f}"
