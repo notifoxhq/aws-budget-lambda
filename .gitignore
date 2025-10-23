@@ -210,6 +210,4 @@ __marimo__/
 function.zip
 *.zip
 
-*.tfvars
-
 .DS_Store
