@@ -211,3 +211,5 @@ function.zip
 *.zip
 
 .DS_Store
+
+terraform.tfvars
