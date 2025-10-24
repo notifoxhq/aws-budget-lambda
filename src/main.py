@@ -110,12 +110,6 @@ def lambda_handler(event, context):
         return {
             "statusCode": 200,
             "message": "Alert sent successfully",
-            "cost": monthly_cost,
-            "account_id": account_id,
-            "event_source": event_source,
-            "event_detail_type": event_detail_type,
-            "schedule_name": schedule_name,
-            "timezone": timezone
         }
 
     except Exception as e:
