@@ -8,7 +8,7 @@ A serverless Lambda function that notifies you of your month-to-date AWS spend u
 
 - AWS CLI configured with appropriate permissions
 - Terraform installed
-- Notifox account and API credentials
+- [Notifox account](https://console.notifox.com) and API credentials
 
 ## Setup
 
