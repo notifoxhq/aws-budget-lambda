@@ -61,9 +61,7 @@ def send_alert(message):
     url = "https://api.notifox.com/alert"
 
     payload = json.dumps({
-        "audience": [
-            notifox_audience
-        ],
+        "audience": notifox_audience,
         "alert": message
     })
 
